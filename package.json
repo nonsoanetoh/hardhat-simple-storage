@@ -13,9 +13,13 @@
     "prettier-plugin-solidity": "^1.0.0"
   },
   "scripts": {
+    "start": "npx hardhat",
     "compile": "npx hardhat compile",
     "block-number": "npx hardhat block-number --network goerli",
-    "run deploy-simple-storage": "npx hardhat run scripts/deployFCC.js",
-    "run deploy-custom-testnet": "npx hardhat run scripts/deployFCC.js  --network goerli"
+    "start local-node": "npx hardhat node",
+    "clean": "npx hardhat clean",
+    "deploy-simple-storage": "npx hardhat run scripts/deployFCC.js",
+    "deploy-custom-testnet": "npx hardhat run scripts/deployFCC.js  --network goerli",
+    "deploy-local-node": "npx hardhat run scripts/deployFCC.js  --network localhost"
   }
 }
