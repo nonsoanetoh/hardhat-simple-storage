@@ -9,6 +9,7 @@ const main = async () => {
   console.log(`deployed simple-storage to ${simpleStorage.address}`);
   // ONLY RUN CONTRACT VERIFICATION WHEN RUNNING ON THE GOERLI NETWORK
   // THIS IS BECAUSE THE HARDHAT NETWORK ONLY RUNS LOCALLY ON THIS DEVICE
+  // ITS BEST PRACTICE TO WAIT A FEW BLOCKS BEFORE VERIFYING A CONTRACT ON ETHERSCAN
   if (network.config.chainId === 5 && process.env.ETHERSCAN_API_KEY) {
     await simpleStorage.deployTransaction.wait(6);
     await verify(simpleStorage.address, []);
