@@ -14,12 +14,13 @@
   },
   "scripts": {
     "start": "npx hardhat",
-    "compile": "npx hardhat compile",
-    "block-number": "npx hardhat block-number --network goerli",
-    "start local-node": "npx hardhat node",
     "clean": "npx hardhat clean",
-    "deploy-simple-storage": "npx hardhat run scripts/deployFCC.js",
-    "deploy-custom-testnet": "npx hardhat run scripts/deployFCC.js  --network goerli",
-    "deploy-local-node": "npx hardhat run scripts/deployFCC.js  --network localhost"
+    "compile": "npx hardhat compile",
+    "task:block": "npx hardhat block --network goerli",
+    "task:accounts": "npx hardhat accounts --network hardhat",
+    "run:local-node": "npx hardhat node",
+    "deploy:simple-storage": "npx hardhat run scripts/deployFCC.js",
+    "deploy:custom-testnet": "npx hardhat run scripts/deployFCC.js  --network goerli",
+    "deploy:local-node": "npx hardhat run scripts/deployFCC.js  --network localhost"
   }
 }

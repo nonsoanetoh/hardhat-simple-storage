@@ -1,7 +1,8 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("@nomiclabs/hardhat-etherscan");
 require("dotenv").config();
-require("./tasks/block-number.task");
+require("./tasks/block.task");
+require("./tasks/accounts.task");
 
 const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL;
 const WALLET_PRIVATE_KEY = process.env.PRIVATE_KEY;
@@ -19,7 +20,7 @@ module.exports = {
     },
     localhost: {
       url: LOCAL_HARDHAT_NODE_URL,
-      // no need fo accounts. hardhat generates 19 for us to use
+      // no need for accounts. hardhat generates 19 for us to use
       // accounts: [],
       chainId: 31337,
     },
