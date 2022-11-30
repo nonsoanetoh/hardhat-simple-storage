@@ -1,11 +1,15 @@
-const { ethers } = require("hardhat");
-const { expect, assert } = require("chai");
+import { ethers } from "hardhat";
+import { assert } from "chai";
+import { SimpleStorage, SimpleStorage__factory } from "../typechain-types";
 
 describe("SimpleStorage", function () {
-  let SimpleStorageFactory, simpleStorage;
+  let SimpleStorageFactory: SimpleStorage__factory;
+  let simpleStorage: SimpleStorage;
 
   beforeEach(async function () {
-    SimpleStorageFactory = await ethers.getContractFactory("SimpleStorage");
+    SimpleStorageFactory = (await ethers.getContractFactory(
+      "SimpleStorage"
+    )) as SimpleStorage__factory;
     simpleStorage = await SimpleStorageFactory.deploy();
   });
 
@@ -52,10 +56,11 @@ describe("SimpleStorage", function () {
   ];
 
   compareStringTests.forEach(({ args }) => {
-    it(`should compare ${args.length} strings - ${
-      args.length <= 2 ? args.join(" & ") : args.join(",")
-    }`, async function () {
-      const compareTwoStrings = await simpleStorage.compareTwoStrings(...args);
+    it(`should compare 2 strings - ${args.join(" & ")}`, async function () {
+      const compareTwoStrings = await simpleStorage.compareTwoStrings(
+        args[0],
+        args[1]
+      );
       const expectedValue = args[0] === args[1];
 
       assert.equal(compareTwoStrings, expectedValue);

@@ -11,3 +11,6 @@ artifacts
 
 #Reports
 reports
+
+typechain
+typechain-types

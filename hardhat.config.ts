@@ -1,10 +1,11 @@
-require("@nomicfoundation/hardhat-toolbox");
-require("@nomiclabs/hardhat-etherscan");
-require("dotenv").config();
-require("./tasks/block.task");
-require("./tasks/accounts.task");
-require("hardhat-gas-reporter");
-require("solidity-coverage");
+import "@nomicfoundation/hardhat-toolbox";
+import "@nomiclabs/hardhat-etherscan";
+import "dotenv/config";
+import "./tasks/block.task";
+import "./tasks/accounts.task";
+import "hardhat-gas-reporter";
+import "solidity-coverage";
+import "@typechain/hardhat";
 
 const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL || "https://eth-goerli";
 const WALLET_PRIVATE_KEY = process.env.PRIVATE_KEY || "0xkey";

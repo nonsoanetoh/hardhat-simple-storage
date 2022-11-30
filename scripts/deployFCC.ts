@@ -1,10 +1,10 @@
-const { ethers, run, network } = require("hardhat");
+import { ethers, run, network } from "hardhat";
 
 const main = async () => {
   const SimpleStorageFactory = await ethers.getContractFactory("SimpleStorage");
   console.log("deploying simple-storage contract...");
   const simpleStorage = await SimpleStorageFactory.deploy();
-  await simpleStorage.deployed(0);
+  await simpleStorage.deployed();
 
   console.log(`deployed simple-storage to ${simpleStorage.address}`);
   const signerAddress = (await simpleStorage.signer.getAddress()).toString();
@@ -34,14 +34,14 @@ const main = async () => {
 
 // AUTO VERIFY ON ETHERSCAN
 // ARGS -> CONSTRUCTOR ARGUMENTS
-const verify = async (contractAddress, args) => {
+const verify = async (contractAddress: string, args: any[]) => {
   console.log("verifying contract...");
   try {
     await run("verify:verify", {
       address: contractAddress,
       constructorArguments: args,
     });
-  } catch (e) {
+  } catch (e: any) {
     if (e.message.toLowerCase().includes("already verified")) {
       console.log("contract is aleady verified");
     } else {
