@@ -9,6 +9,7 @@
     "@nomiclabs/hardhat-etherscan": "^3.1.2",
     "dotenv": "^16.0.3",
     "hardhat": "^2.12.2",
+    "hardhat-gas-reporter": "^1.0.9",
     "prettier": "^2.8.0",
     "prettier-plugin-solidity": "^1.0.0"
   },
@@ -17,6 +18,7 @@
     "clean": "npx hardhat clean",
     "compile": "npx hardhat compile",
     "console": "npx hardhat console --network localhost",
+    "test": "npx hardhat test --grep SimpleStorage",
     "start:local-node": "npx hardhat node",
     "task:block": "npx hardhat block --network goerli",
     "task:accounts": "npx hardhat accounts --network hardhat",

@@ -3,11 +3,13 @@ require("@nomiclabs/hardhat-etherscan");
 require("dotenv").config();
 require("./tasks/block.task");
 require("./tasks/accounts.task");
+require("hardhat-gas-reporter");
 
-const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL;
-const WALLET_PRIVATE_KEY = process.env.PRIVATE_KEY;
-const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY;
-const LOCAL_HARDHAT_NODE_URL = process.env.LOCAL_HARDHAT_NODE_URL;
+const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL || "https://eth-goerli";
+const WALLET_PRIVATE_KEY = process.env.PRIVATE_KEY || "0xkey";
+const ETHERSCAN_API_KEY = process.env.ETHERSCAN_API_KEY || "key";
+const LOCAL_HARDHAT_NODE_URL = process.env.LOCAL_HARDHAT_NODE_URL || "key";
+const COINMARKETCAP_API_KEY = process.env.COINMARKETCAP_API_KEY || "key";
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -42,5 +44,14 @@ module.exports = {
         version: "0.8.12",
       },
     },
+  },
+  gasReporter: {
+    enabled: true,
+    outputFile: "./reports/gas-report.txt",
+    noColors: true,
+    currency: "USD",
+    coinmarketcap: COINMARKETCAP_API_KEY,
+    // BLOCKCHAIN BEING DEPLOYED TO
+    // token: "MATIC"
   },
 };
