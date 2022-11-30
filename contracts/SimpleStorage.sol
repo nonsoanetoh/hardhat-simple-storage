@@ -40,19 +40,19 @@ contract SimpleStorage {
         return favouriteNumber;
     }
 
-    function docsViewFunction() public view returns (uint256) {
+    function viewFunction() public view returns (uint256) {
         return favouriteNumber;
     }
 
     // pure functions can only call other pure functions and cannot read or mutate state;
 
-    function docsPureFunction(
+    function callPrivatePureFunction(
         string memory name
     ) public pure returns (string memory) {
-        return pureFunction(name);
+        return privatePureFunction(name);
     }
 
-    function pureFunction(
+    function privatePureFunction(
         string memory name
     ) private pure returns (string memory) {
         return string.concat("Hello ", name);

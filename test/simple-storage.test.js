@@ -58,8 +58,49 @@ describe("SimpleStorage", function () {
       const compareTwoStrings = await simpleStorage.compareTwoStrings(...args);
       const expectedValue = args[0] === args[1];
 
-      console.log(compareTwoStrings, expectedValue);
       assert.equal(compareTwoStrings, expectedValue);
+    });
+  });
+
+  const pureFunctionTests = ["Nonso", "David", "Ben"];
+
+  pureFunctionTests.forEach((arg) => {
+    it(`should say Hello + ${arg}`, async function () {
+      const pureFunction = await simpleStorage.callPrivatePureFunction(arg);
+      const expectedValue = "Hello ".concat(arg);
+
+      assert.equal(pureFunction, expectedValue);
+    });
+  });
+
+  it(`should return favourite number`, async function () {
+    const viewFunction = await simpleStorage.viewFunction();
+    const expectedValue = await simpleStorage.favouriteNumber();
+
+    assert.equal(viewFunction.toString(), expectedValue.toString());
+  });
+
+  const mappingTests = [
+    {
+      name: "Nonso",
+      age: 21,
+    },
+    {
+      name: "Michael",
+      age: 24,
+    },
+    {
+      name: "Trevor",
+      age: 19,
+    },
+  ];
+
+  mappingTests.forEach(({ name, age }) => {
+    it("should add person to mapping", async function () {
+      await simpleStorage.createPerson(name, age);
+      // CHECK IF PERSON EXISTS IN MAPPING
+      const mappingValue = await simpleStorage.nameToAge(name);
+      assert.equal(mappingValue, age);
     });
   });
 });
