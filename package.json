@@ -16,6 +16,7 @@
     "start": "npx hardhat",
     "clean": "npx hardhat clean",
     "compile": "npx hardhat compile",
+    "console": "npx hardhat console --network localhost",
     "start:local-node": "npx hardhat node",
     "task:block": "npx hardhat block --network goerli",
     "task:accounts": "npx hardhat accounts --network hardhat",
