@@ -11,7 +11,8 @@
     "hardhat": "^2.12.2",
     "hardhat-gas-reporter": "^1.0.9",
     "prettier": "^2.8.0",
-    "prettier-plugin-solidity": "^1.0.0"
+    "prettier-plugin-solidity": "^1.0.0",
+    "solidity-coverage": "^0.8.2"
   },
   "scripts": {
     "start": "npx hardhat",
@@ -19,6 +20,7 @@
     "compile": "npx hardhat compile",
     "console": "npx hardhat console --network localhost",
     "test": "npx hardhat test --grep SimpleStorage",
+    "coverage": "npx hardhat coverage",
     "start:local-node": "npx hardhat node",
     "task:block": "npx hardhat block --network goerli",
     "task:accounts": "npx hardhat accounts --network hardhat",

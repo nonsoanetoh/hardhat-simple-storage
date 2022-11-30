@@ -33,4 +33,33 @@ describe("SimpleStorage", function () {
     // USING EXPECT INSTEAD OF ASSERT
     // expect(currentValue.toString).to.equal(expectedValue)
   });
+
+  it("should retrieve favourite number", async function () {
+    const expectedValue = await simpleStorage.favouriteNumber();
+    const currentValue = await simpleStorage.retrieve();
+
+    assert.equal(currentValue.toString(), expectedValue.toString());
+  });
+
+  // DYNAMIC TEST ARGUMENTS
+  const compareStringTests = [
+    {
+      args: ["Shoe", "Shoe"],
+    },
+    {
+      args: ["Store", "Shore"],
+    },
+  ];
+
+  compareStringTests.forEach(({ args }) => {
+    it(`should compare ${args.length} strings - ${
+      args.length <= 2 ? args.join(" & ") : args.join(",")
+    }`, async function () {
+      const compareTwoStrings = await simpleStorage.compareTwoStrings(...args);
+      const expectedValue = args[0] === args[1];
+
+      console.log(compareTwoStrings, expectedValue);
+      assert.equal(compareTwoStrings, expectedValue);
+    });
+  });
 });

@@ -4,6 +4,7 @@ require("dotenv").config();
 require("./tasks/block.task");
 require("./tasks/accounts.task");
 require("hardhat-gas-reporter");
+require("solidity-coverage");
 
 const GOERLI_RPC_URL = process.env.GOERLI_RPC_URL || "https://eth-goerli";
 const WALLET_PRIVATE_KEY = process.env.PRIVATE_KEY || "0xkey";
