@@ -16,9 +16,9 @@
     "start": "npx hardhat",
     "clean": "npx hardhat clean",
     "compile": "npx hardhat compile",
+    "start:local-node": "npx hardhat node",
     "task:block": "npx hardhat block --network goerli",
     "task:accounts": "npx hardhat accounts --network hardhat",
-    "run:local-node": "npx hardhat node",
     "deploy:simple-storage": "npx hardhat run scripts/deployFCC.js",
     "deploy:custom-testnet": "npx hardhat run scripts/deployFCC.js  --network goerli",
     "deploy:local-node": "npx hardhat run scripts/deployFCC.js  --network localhost"
